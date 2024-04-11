@@ -48,7 +48,7 @@ public class OfficeDTO {
     }
 
     public String checkCountryUE(String countryOffice) {
-        if (Arrays.asList(CountryEU.values()).contains(CountryEU.valueOf(countryOffice))) {
+        if (Arrays.asList(CountryEU.values()).contains(CountryEU.valueOf(countryOffice.toUpperCase()))) {
             return "EU";
         } else {
             return "NOT_EU";

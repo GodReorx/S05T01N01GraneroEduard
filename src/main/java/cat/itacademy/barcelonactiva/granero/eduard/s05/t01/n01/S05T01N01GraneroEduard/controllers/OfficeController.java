@@ -6,7 +6,9 @@ import cat.itacademy.barcelonactiva.granero.eduard.s05.t01.n01.S05T01N01GraneroE
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -14,8 +16,12 @@ import java.util.List;
 @RequestMapping("/sucursal")
 public class OfficeController {
     @Autowired
-    OfficeService officeService;
+    private OfficeService officeService;
 
+    @GetMapping("/")
+    public String startweb(){
+        return "index";
+    }
     @PostMapping("/add")
     public ResponseEntity<OfficeDTO> addOffice (@RequestBody Office office){
         return ResponseEntity.ok().body(officeService.addOffice(office));
@@ -42,8 +48,10 @@ public class OfficeController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<OfficeDTO>> getAllOffice (){
-        return ResponseEntity.ok().body(officeService.getAllOffice());
+    public ModelAndView getAllOffice (Model model){
+        List<OfficeDTO> officeList = officeService.getAllOffice();
+        model.addAttribute("titulo","Office List");
+        model.addAttribute("offices", officeList);
+        return new ModelAndView("sucursal/listado",model.asMap());
     }
-
 }

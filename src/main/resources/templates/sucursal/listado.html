@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{plantilla/template :: head}">
+</head>
+<body>
+    <header th:replace="~{plantilla/template :: header}"></header>
+
+    <div class="container">
+        <h1 th:text="${titulo}"></h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="office : ${offices}">
+                <td th:text="${office.pk_OfficeID}"></td>
+                <td th:text="${office.nameOffice}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer th:replace="~{plantilla/template :: footer}" ></footer>
+</body>
+</html>
