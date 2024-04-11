@@ -4,8 +4,31 @@
 </head>
 <body>
     <header th:replace="~{plantilla/template :: header}"></header>
-    <h1>Hola persona a mi inicio</h1>
-
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <h1 th:text="${titulo}"></h1>
+        <table class="table table-bordered border-primary border border-3">
+            <thead>
+            <tr class="text-uppercase table-primary">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>EU / NOT EU</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="office : ${offices}">
+                <td th:text="${office.pk_OfficeID}" class="w-25"></td>
+                <td th:text="${office.nameOffice}" class="w-25"></td>
+                <td th:text="${office.countryOffice}" class="text-uppercase w-25"></td>
+                <td th:text="${office.typeOffice}" class="w-25"></td>
+                <td class="w-25">
+                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-danger" onclick="return confirm('¿Borrar oficina?')">Eliminate</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
     <footer th:replace="~{plantilla/template :: footer}" ></footer>
 </body>
 </html>

@@ -19,7 +19,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation("org.springframework.boot:spring-boot-starter-validation:3.2.4")
+	developmentOnly("org.springframework.boot:spring-boot-devtools:3.2.4")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

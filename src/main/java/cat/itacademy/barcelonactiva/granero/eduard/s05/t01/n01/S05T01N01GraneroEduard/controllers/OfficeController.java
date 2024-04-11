@@ -18,10 +18,6 @@ public class OfficeController {
     @Autowired
     private OfficeService officeService;
 
-    @GetMapping("/")
-    public String startweb(){
-        return "index";
-    }
     @PostMapping("/add")
     public ResponseEntity<OfficeDTO> addOffice (@RequestBody Office office){
         return ResponseEntity.ok().body(officeService.addOffice(office));

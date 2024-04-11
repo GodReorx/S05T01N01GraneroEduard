@@ -7,17 +7,21 @@
 
     <div class="container">
         <h1 th:text="${titulo}"></h1>
-        <table>
+        <table class="table table-striped-columns table-bordered border-primary border border-3">
             <thead>
-            <tr>
+            <tr class="text-uppercase">
                 <th>Id</th>
                 <th>Name</th>
+                <th>Country</th>
+                <th>EU / NOT EU</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="office : ${offices}">
                 <td th:text="${office.pk_OfficeID}"></td>
                 <td th:text="${office.nameOffice}"></td>
+                <td class="text-uppercase" th:text="${office.countryOffice}"></td>
+                <td th:text="${office.typeOffice}"></td>
             </tr>
             </tbody>
         </table>

@@ -1,10 +1,12 @@
 package cat.itacademy.barcelonactiva.granero.eduard.s05.t01.n01.S05T01N01GraneroEduard.model.dto;
 
-import java.util.Arrays;
+import jakarta.validation.constraints.NotEmpty;
 
 public class OfficeDTO {
     private Integer pk_OfficeID;
+    @NotEmpty(message = "The name cannot be empty")
     private String nameOffice;
+    @NotEmpty(message = "The country cannot be empty")
     private String countryOffice;
     private String typeOffice;
 
@@ -47,11 +49,12 @@ public class OfficeDTO {
         this.typeOffice = typeOffice;
     }
 
-    public String checkCountryUE(String countryOffice) {
-        if (Arrays.asList(CountryEU.values()).contains(CountryEU.valueOf(countryOffice.toUpperCase()))) {
-            return "EU";
-        } else {
-            return "NOT_EU";
+    public static String checkCountryUE(String countryOffice) {
+        for (CountryEU country : CountryEU.values()) {
+            if (countryOffice.equalsIgnoreCase(country.name())) {
+                return "EU";
+            }
         }
+        return "NOT_EU";
     }
 }

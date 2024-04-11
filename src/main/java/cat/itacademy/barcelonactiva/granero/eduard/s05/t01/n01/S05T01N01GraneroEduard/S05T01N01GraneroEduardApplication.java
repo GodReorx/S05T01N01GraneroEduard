@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class S05T01N01GraneroEduardApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(S05T01N01GraneroEduardApplication.class, args);
 	}
