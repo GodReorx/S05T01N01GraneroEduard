@@ -14,7 +14,9 @@ public interface OfficeService {
 
     boolean deleteOffice(Integer id);
 
-    OfficeDTO getOneOffice(Integer id);
+    OfficeDTO getOneOfficeDTO(Integer id);
+
+    Office getOneOffice(Integer id);
 
     List<OfficeDTO> getAllOffice();
 }

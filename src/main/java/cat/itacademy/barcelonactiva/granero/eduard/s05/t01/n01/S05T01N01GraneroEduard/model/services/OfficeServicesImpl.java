@@ -46,10 +46,20 @@ public class OfficeServicesImpl implements OfficeService{
     }
 
     @Override
-    public OfficeDTO getOneOffice(Integer id) {
+    public OfficeDTO getOneOfficeDTO(Integer id) {
         Optional<Office> officeDb = officeRepository.findById(id);
         if (officeDb.isPresent()){
             return convertToDTO(officeDb.get());
+        } else {
+            throw new RuntimeException("Record not found with ID: " + id);
+        }
+    }
+
+    @Override
+    public Office getOneOffice(Integer id) {
+        Optional<Office> officeDb = officeRepository.findById(id);
+        if (officeDb.isPresent()){
+            return officeDb.get();
         } else {
             throw new RuntimeException("Record not found with ID: " + id);
         }

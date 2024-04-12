@@ -2,42 +2,33 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org/">
 <head th:fragment="head">
     <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <title>CRUD Office</title>
+    <style>
+        h1 {
+          background: linear-gradient(to bottom, #ffffff 0%, #999966 100%);
+          color: black;
+          font-size: 16px;
+          padding: 5px 10px;
+          max-height: 20px;
+          overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <!-- BARRA NAVEGACION -->
         <header th:fragment="header">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link" href="/" >Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/sucursal/getAll}">Listado sucursales</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
+            <h1>OFFICE LIST</h1>
         </header>
         <!-- CONTENIDO -->
         <div id="content-wrap">
 
         </div>
         <!-- PIE DE PAGINA -->
-        <footer class="bg-info text-center text-lg-start fixed-bottom" th:fragment="footer">
+        <footer th:fragment="footer">
 
-            <div class="text-center p-3 font-weight-bold" style="background-color: rgba(120, 120, 120);">
-                <p class ="fw-bold text-white">Copyright GodReorx &copy; - 2024</p>
+            <div style="background-color: rgba(120, 120, 120);">
+                <p>Copyright GodReorx &copy; - 2024</p>
             </div>
-
-            <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-            <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
-            <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
-
         </footer>
 </body>
 </html>

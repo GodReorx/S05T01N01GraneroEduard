@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        h1 {
+          background-color: white;
+          color: black;
+          font-size: 32px;
+          padding: 30px;
+          max-height: 30px;
+          overflow: hidden;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left; /* Alinea el texto del formulario a la izquierda */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        footer {
+            background-color: #8c8c8c;
+            color: white;
+            font-size: 18px;
+            padding: 20px;
+            max-height: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>OFFICE LIST</h1>
+</header>
+<div class="container">
+    <form th:action="${updateUrl}" th:object="${office}" method="post">
+
+        <input type="hidden" th:field="*{pk_OfficeID}" />
+
+        <label>Name:</label>
+        <input type="text" th:field="*{nameOffice}" />
+
+        <label>Country:</label>
+        <input type="text" th:field="*{countryOffice}" />
+
+        <button type="submit">Guardar</button>
+    </form>
+    <div th:if="${error}" class="alert alert-danger" style="color: red;">
+        <p th:text="${error}"></p>
+    </div>
+</div>
+<a th:href="@{/sucursal/index}">Return to office list</a>
+<footer>
+    <div class="footer">
+        <p>Copyright GodReorx &copy; - 2024</p>
+    </div>
+</footer>
+</body>
+</html>

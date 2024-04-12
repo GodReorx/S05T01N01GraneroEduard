@@ -11,16 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class WebController {
 
     @Autowired
     private OfficeService officeService;
-    @GetMapping("")
+    @GetMapping({"","/","/sucursal/index"})
     public String index(Model model) {
-        List<OfficeDTO> offices = officeService.getAllOffice();
-        model.addAttribute("titulo","Office List");
-        model.addAttribute("offices", offices);
-        return "index";
+        return "redirect:/sucursal/getAll";
     }
 }
