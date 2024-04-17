@@ -65,12 +65,12 @@ public class OfficeController {
     }
 
     @GetMapping("/getOne")
-    public ModelAndView getOneOffice(@RequestParam(value = "id", required = true) String officeId, Model model) {
+    public ModelAndView getOneOffice(@RequestParam(value = "id") String officeId, Model model) {
         try {
             int id = Integer.parseInt(officeId);
             OfficeDTO officeDTO = officeService.getOneOfficeDTO(id);
             if (officeDTO != null) {
-                model.addAttribute("offices", Arrays.asList(officeDTO)); // Assuming you want an array for the table
+                model.addAttribute("offices", Arrays.asList(officeDTO));
             } else {
                 model.addAttribute("message", "Office with ID " + id + " not found.");
             }
